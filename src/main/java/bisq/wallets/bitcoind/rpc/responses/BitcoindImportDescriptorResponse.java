@@ -17,18 +17,19 @@
 
 package bisq.wallets.bitcoind.rpc.responses;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import bisq.wallets.json_rpc.JsonRpcResponse;
+import com.squareup.moshi.Json;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 import java.util.Map;
 
-@Getter
-@Setter
-public class BitcoindImportDescriptorResponseEntry {
-    @JsonProperty("success")
-    private boolean isSuccess;
-    private List<String> warnings;
-    private Map<String, String> error;
+public class BitcoindImportDescriptorResponse extends JsonRpcResponse<List<BitcoindImportDescriptorResponse.Entry>> {
+    @Getter
+    public static class Entry {
+        @Json(name = "success")
+        private boolean isSuccess;
+        private List<String> warnings;
+        private Map<String, String> error;
+    }
 }

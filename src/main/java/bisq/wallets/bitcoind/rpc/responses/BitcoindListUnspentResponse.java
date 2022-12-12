@@ -18,26 +18,29 @@
 package bisq.wallets.bitcoind.rpc.responses;
 
 import bisq.wallets.core.model.Utxo;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import bisq.wallets.json_rpc.JsonRpcResponse;
+import com.squareup.moshi.Json;
 import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
-public class BitcoindListUnspentResponseEntry implements Utxo {
-    @JsonProperty("txid")
-    private String txId;
-    private int vout;
-    private String address;
-    private String label;
-    private String scriptPubKey;
-    private double amount;
-    private int confirmations;
-    private String redeemScript;
-    private String witnessScript;
-    private boolean spendable;
-    private boolean solvable;
-    private boolean reused;
-    private String desc;
-    private boolean safe;
+import java.util.List;
+
+public class BitcoindListUnspentResponse extends JsonRpcResponse<List<BitcoindListUnspentResponse.Entry>> {
+    @Getter
+    public static class Entry implements Utxo {
+        @Json(name = "txid")
+        private String txId;
+        private int vout;
+        private String address;
+        private String label;
+        private String scriptPubKey;
+        private double amount;
+        private int confirmations;
+        private String redeemScript;
+        private String witnessScript;
+        private boolean spendable;
+        private boolean solvable;
+        private boolean reused;
+        private String desc;
+        private boolean safe;
+    }
 }
