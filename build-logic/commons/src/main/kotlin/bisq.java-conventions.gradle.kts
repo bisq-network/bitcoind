@@ -10,8 +10,8 @@ repositories {
 }
 
 java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+    tasks.compileJava {
+        options.release = 11
     }
 }
 
