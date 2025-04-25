@@ -36,7 +36,7 @@ class SignedBinaryDownloader(
 
             fileToVerify.set(binaryDownloadTask.flatMap { it.outputFile })
             detachedSignatureFile.set(signatureDownloadTask.flatMap { it.outputFile })
-            pgpFingerprintToKeyUrl.set(pgpFingerprintToKeyUrlMap)
+            pgpFingerprintToKeyUrl.set(pgpFingerprintToKeyUrlMap.mapValues { (_, url) -> url.toURI().toString() })
 
             resultFile.set(project.layout.buildDirectory.file("${downloadDirectory}/sha256.result"))
         }
