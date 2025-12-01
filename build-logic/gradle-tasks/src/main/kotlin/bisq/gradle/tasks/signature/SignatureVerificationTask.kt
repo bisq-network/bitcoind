@@ -2,16 +2,13 @@ package bisq.gradle.tasks.signature
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
-import org.gradle.api.file.RegularFile
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.provider.MapProperty
-import org.gradle.api.provider.Property
-import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
-import java.net.URL
+import java.net.URI
 
 abstract class SignatureVerificationTask : DefaultTask() {
 
@@ -22,14 +19,15 @@ abstract class SignatureVerificationTask : DefaultTask() {
     abstract val detachedSignatureFile: RegularFileProperty
 
     @get:Input
-    abstract val pgpFingerprintToKeyUrl: MapProperty<String, URL>
+    abstract val pgpFingerprintToKeyUrl: MapProperty<String, String>
 
     @get:OutputFile
     abstract val resultFile: RegularFileProperty
 
     @TaskAction
     fun verify() {
-        val signatureVerifier = SignatureVerifier(pgpFingerprintToKeyUrl.get())
+        val signatureVerifier =
+            SignatureVerifier(pgpFingerprintToKeyUrl.get().mapValues { (_, urlStr) -> URI.create(urlStr).toURL() })
         val isSignatureValid = signatureVerifier.verifySignature(
             signatureFile = detachedSignatureFile.get().asFile,
             fileToVerify = fileToVerify.get().asFile
