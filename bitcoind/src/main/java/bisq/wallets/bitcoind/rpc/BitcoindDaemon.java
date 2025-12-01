@@ -20,6 +20,7 @@ package bisq.wallets.bitcoind.rpc;
 import bisq.wallets.bitcoind.rpc.calls.*;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindDecodeRawTransactionResponse;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindFinalizePsbtResponse;
+import bisq.wallets.bitcoind.rpc.responses.BitcoindGetNetworkInfoResponse;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindGetZmqNotificationsResponse;
 import bisq.wallets.json_rpc.RpcConfig;
 import bisq.wallets.json_rpc.RpcClientFactory;
@@ -83,6 +84,11 @@ public class BitcoindDaemon {
                 .build();
         var rpcCall = new BitcoindGenerateToAddressRpcCall(request);
         return rpcClient.call(rpcCall).getResult();
+    }
+
+    public BitcoindGetNetworkInfoResponse getNetworkInfo() {
+        var rpcCall = new BitcoindGetNetworkInfoRpcCall();
+        return rpcClient.call(rpcCall);
     }
 
     public String getRawTransaction(String txId) {
