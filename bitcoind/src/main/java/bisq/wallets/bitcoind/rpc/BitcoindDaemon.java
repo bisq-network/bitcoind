@@ -86,6 +86,11 @@ public class BitcoindDaemon {
         return rpcClient.call(rpcCall).getResult();
     }
 
+    public int getBlockCount() {
+        var rpcCall = new BitcoindGetBlockCountRpcCall();
+        return rpcClient.call(rpcCall).getResult();
+    }
+
     public BitcoindGetNetworkInfoResponse getNetworkInfo() {
         var rpcCall = new BitcoindGetNetworkInfoRpcCall();
         return rpcClient.call(rpcCall);
