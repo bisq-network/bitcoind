@@ -24,4 +24,13 @@ public class BitcoindGetBlockMetadataTests {
         int blockCount = daemon.getBlockCount();
         assertThat(blockCount).isGreaterThanOrEqualTo(101);
     }
+
+    @Test
+    void blockHashTest() {
+        int blockCount = daemon.getBlockCount();
+        String blockHash = daemon.getBlockHash(blockCount);
+
+        assertThat(blockHash).isNotEmpty();
+        assertThat(blockHash).hasSize(64);
+    }
 }
