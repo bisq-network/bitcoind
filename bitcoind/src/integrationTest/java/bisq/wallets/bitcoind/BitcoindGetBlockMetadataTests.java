@@ -33,4 +33,11 @@ public class BitcoindGetBlockMetadataTests {
         assertThat(blockHash).isNotEmpty();
         assertThat(blockHash).hasSize(64);
     }
+
+    @Test
+    void bestBlockHashTest() {
+        String blockHash = daemon.getBestBlockHash();
+        assertThat(blockHash).isNotEmpty();
+        assertThat(blockHash).hasSize(64);
+    }
 }
