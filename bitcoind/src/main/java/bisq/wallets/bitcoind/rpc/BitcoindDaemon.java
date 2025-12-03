@@ -91,6 +91,12 @@ public class BitcoindDaemon {
         return rpcClient.call(rpcCall).getResult();
     }
 
+    public String getBlockHash(int height) {
+        var request = new BitcoindGetBlockHashRpcCall.Request(height);
+        var rpcCall = new BitcoindGetBlockHashRpcCall(request);
+        return rpcClient.call(rpcCall).getResult();
+    }
+
     public BitcoindGetNetworkInfoResponse getNetworkInfo() {
         var rpcCall = new BitcoindGetNetworkInfoRpcCall();
         return rpcClient.call(rpcCall);
