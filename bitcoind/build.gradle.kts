@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core"))
+    implementation(project(":bitcoind-core"))
     implementation(project(":json-rpc"))
 
     implementation(libs.jeromq)
