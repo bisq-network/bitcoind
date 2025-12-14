@@ -16,7 +16,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation(project(":core"))
+    implementation(project(":bitcoind-core"))
     implementation(project(":bitcoind"))
     implementation(project(":json-rpc"))
 

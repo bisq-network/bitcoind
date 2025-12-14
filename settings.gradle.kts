@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-include("core")
+include("bitcoind-core")
 include("bitcoind")
 include("json-rpc")
 include("regtest")
