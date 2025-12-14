@@ -18,8 +18,10 @@
 package bisq.wallets.bitcoind.rpc;
 
 import bisq.wallets.bitcoind.rpc.calls.*;
+import bisq.wallets.bitcoind.rpc.calls.BitcoindGetBlockRpcCall;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindDecodeRawTransactionResponse;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindFinalizePsbtResponse;
+import bisq.wallets.bitcoind.rpc.responses.BitcoindGetBlockVerbosityOneResponse;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindGetNetworkInfoResponse;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindGetZmqNotificationsResponse;
 import bisq.wallets.json_rpc.RpcConfig;
@@ -27,6 +29,9 @@ import bisq.wallets.json_rpc.RpcClientFactory;
 import bisq.wallets.json_rpc.JsonRpcClient;
 import bisq.wallets.json_rpc.RpcCallFailureException;
 import bisq.wallets.json_rpc.exceptions.InvalidRpcCredentialsException;
+import bisq.wallets.json_rpc.reponses.JsonRpcStringResponse;
+
+
 
 import java.util.List;
 import java.util.Optional;
@@ -87,8 +92,14 @@ public class BitcoindDaemon {
     }
 
     public String getBlockVerbosityZero(String blockHash) {
-        var request = new BitcoindGetBlockVerbosityZeroRpcCall.Request(blockHash);
-        var rpcCall = new BitcoindGetBlockVerbosityZeroRpcCall(request);
+        var request = new BitcoindGetBlockRpcCall.Request(blockHash, 0);
+        var rpcCall = new BitcoindGetBlockRpcCall<>(request, JsonRpcStringResponse.class);
+        return rpcClient.call(rpcCall).getResult();
+    }
+
+    public BitcoindGetBlockVerbosityOneResponse.Result getBlockVerbosityOne(String blockHash) {
+        var request = new BitcoindGetBlockRpcCall.Request(blockHash, 1);
+        var rpcCall = new BitcoindGetBlockRpcCall<>(request, BitcoindGetBlockVerbosityOneResponse.class);
         return rpcClient.call(rpcCall).getResult();
     }
 
