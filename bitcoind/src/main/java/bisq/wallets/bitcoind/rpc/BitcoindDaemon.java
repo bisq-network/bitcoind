@@ -86,6 +86,12 @@ public class BitcoindDaemon {
         return rpcClient.call(rpcCall).getResult();
     }
 
+    public String getBlockVerbosityZero(String blockHash) {
+        var request = new BitcoindGetBlockVerbosityZeroRpcCall.Request(blockHash);
+        var rpcCall = new BitcoindGetBlockVerbosityZeroRpcCall(request);
+        return rpcClient.call(rpcCall).getResult();
+    }
+
     public int getBlockCount() {
         var rpcCall = new BitcoindGetBlockCountRpcCall();
         return rpcClient.call(rpcCall).getResult();
