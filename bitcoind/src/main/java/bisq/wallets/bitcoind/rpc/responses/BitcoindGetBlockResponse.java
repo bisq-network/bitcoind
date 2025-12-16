@@ -23,7 +23,7 @@ public class BitcoindGetBlockResponse<T> extends JsonRpcResponse<BitcoindGetBloc
         private long time;
         @Json(name = "mediantime")
         private long medianTime;
-        private int nonce;
+        private long nonce;
         private String bits;
 
         private String target;
