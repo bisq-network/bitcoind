@@ -33,7 +33,7 @@ public class AbstractDecodeRawTransactionResponse<S extends AbstractVin, T exten
     private int version;
 
     @Json(name = "locktime")
-    private int lockTime;
+    private long lockTime;
     private List<S> vin;
     private List<T> vout;
 }
