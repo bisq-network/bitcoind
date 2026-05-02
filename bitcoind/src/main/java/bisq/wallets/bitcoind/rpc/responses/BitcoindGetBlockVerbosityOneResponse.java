@@ -9,9 +9,9 @@ import lombok.Getter;
 import bisq.wallets.json_rpc.JsonRpcResponse;
 import com.squareup.moshi.Json;
 
-public class BitcoindGetBlockResponse<T> extends JsonRpcResponse<BitcoindGetBlockResponse.Result<T>> {
+public class BitcoindGetBlockVerbosityOneResponse extends JsonRpcResponse<BitcoindGetBlockVerbosityOneResponse.Result> {
     @Getter
-    public static class Result<T> {
+    public static class Result {
         private String hash;
         private int confirmations;
         private int height;
@@ -42,12 +42,6 @@ public class BitcoindGetBlockResponse<T> extends JsonRpcResponse<BitcoindGetBloc
         private int weight;
 
         @Json(name = "tx")
-        private List<T> txs;
-    }
-
-    public static class VerbosityOne extends BitcoindGetBlockResponse<String> {
-    }
-
-    public static class VerbosityTwo extends BitcoindGetBlockResponse<BitcoindTransaction> {
+        private List<String> txs;
     }
 }

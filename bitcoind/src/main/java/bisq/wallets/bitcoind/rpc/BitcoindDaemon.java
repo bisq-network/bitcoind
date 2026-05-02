@@ -21,10 +21,9 @@ import bisq.wallets.bitcoind.rpc.calls.*;
 import bisq.wallets.bitcoind.rpc.calls.BitcoindGetBlockRpcCall;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindDecodeRawTransactionResponse;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindFinalizePsbtResponse;
-import bisq.wallets.bitcoind.rpc.responses.BitcoindGetBlockResponse;
+import bisq.wallets.bitcoind.rpc.responses.BitcoindGetBlockVerbosityOneResponse;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindGetNetworkInfoResponse;
 import bisq.wallets.bitcoind.rpc.responses.BitcoindGetZmqNotificationsResponse;
-import bisq.wallets.bitcoind.rpc.responses.BitcoindTransaction;
 import bisq.wallets.json_rpc.RpcConfig;
 import bisq.wallets.json_rpc.RpcClientFactory;
 import bisq.wallets.json_rpc.JsonRpcClient;
@@ -98,15 +97,9 @@ public class BitcoindDaemon {
         return rpcClient.call(rpcCall).getResult();
     }
 
-    public BitcoindGetBlockResponse.Result<String> getBlockVerbosityOne(String blockHash) {
+    public BitcoindGetBlockVerbosityOneResponse.Result getBlockVerbosityOne(String blockHash) {
         var request = new BitcoindGetBlockRpcCall.Request(blockHash, 1);
-        var rpcCall = new BitcoindGetBlockRpcCall<>(request, BitcoindGetBlockResponse.VerbosityOne.class);
-        return rpcClient.call(rpcCall).getResult();
-    }
-
-    public BitcoindGetBlockResponse.Result<BitcoindTransaction> getBlockVerbosityTwo(String blockHash) {
-        var request = new BitcoindGetBlockRpcCall.Request(blockHash, 2);
-        var rpcCall = new BitcoindGetBlockRpcCall<>(request, BitcoindGetBlockResponse.VerbosityTwo.class);
+        var rpcCall = new BitcoindGetBlockRpcCall<>(request, BitcoindGetBlockVerbosityOneResponse.class);
         return rpcClient.call(rpcCall).getResult();
     }
 

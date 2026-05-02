@@ -24,6 +24,7 @@ public class BitcoindScriptPubKey {
     private String asm;
     private String desc;
     private String hex;
-    private String address;
+    private int reqSigs;
     private String type;
+    private String address;
 }
