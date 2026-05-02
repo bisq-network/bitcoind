@@ -46,7 +46,7 @@ public class JsonRpcClient {
         this.rpcEndpointSpec = rpcEndpointSpec;
 
         var loggingInterceptor = new HttpLoggingInterceptor(log::info);
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         loggingInterceptor.redactHeader(AUTHORIZATION_HEADER_NAME);
 
         this.client = new OkHttpClient.Builder()
