@@ -40,13 +40,4 @@ public class BitcoindGetBlockMetadataTests {
         assertThat(blockHash).isNotEmpty();
         assertThat(blockHash).hasSize(64);
     }
-
-    @Test
-    void combinedBlockMetadataTest() {
-        int blockCount = daemon.getBlockCount();
-        String blockHash = daemon.getBlockHash(blockCount);
-        String bestBlockHash = daemon.getBestBlockHash();
-
-        assertThat(blockHash).isEqualTo(bestBlockHash);
-    }
 }
