@@ -4,7 +4,7 @@ plugins {
 }
 
 bitcoin_core {
-    version.set("29.2")
+    version.set("27.1")
 }
 
 sourceSets {
