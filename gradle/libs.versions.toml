@@ -4,6 +4,7 @@ bouncycastle-lib = { strictly = '1.69' } # Oldest version without known CVEs
 google-guava-lib = { strictly = '31.1-jre' }
 jeromq-lib = { strictly = '0.5.2' }
 junit-jupiter-lib = { strictly = '5.8.2' }
+junit-platform-lib = { strictly = '1.8.2' }
 logback-lib = { strictly = '1.2.11' }
 lombok-lib = { strictly = '1.18.34' }
 mockito-lib = { strictly = '4.11.0' }
@@ -17,6 +18,7 @@ bouncycastle-pg = { module = 'org.bouncycastle:bcpg-jdk15on', version.ref = 'bou
 google-guava = { module = 'com.google.guava:guava', version.ref = 'google-guava-lib' }
 jeromq = { module = 'org.zeromq:jeromq', version.ref = 'jeromq-lib' }
 junit-jupiter = { module = 'org.junit.jupiter:junit-jupiter', version.ref = 'junit-jupiter-lib' }
+junit-platform-launcher = { module = 'org.junit.platform:junit-platform-launcher', version.ref = 'junit-platform-lib' }
 logback-classic = { module = 'ch.qos.logback:logback-classic', version.ref = 'logback-lib' }
 logback-core = { module = 'ch.qos.logback:logback-core', version.ref = 'logback-lib' }
 lombok = { module = 'org.projectlombok:lombok', version.ref = 'lombok-lib' }

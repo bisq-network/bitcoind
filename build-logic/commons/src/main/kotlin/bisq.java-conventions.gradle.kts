@@ -10,9 +10,13 @@ repositories {
 }
 
 java {
-    tasks.compileJava {
-        options.release = 11
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.release = 17
 }
 
 tasks {
@@ -47,6 +51,9 @@ dependencies {
 
     versionCatalog.findLibrary("junit-jupiter").ifPresent {
         testImplementation(it)
+    }
+    versionCatalog.findLibrary("junit-platform-launcher").ifPresent {
+        testRuntimeOnly(it)
     }
 
     versionCatalog.findLibrary("assertj-core").ifPresent {
