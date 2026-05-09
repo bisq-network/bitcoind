@@ -1,20 +1,20 @@
 [versions]
-assertj-core-lib = { strictly = '3.22.0' }
-bouncycastle-lib = { strictly = '1.69' } # Oldest version without known CVEs
-google-guava-lib = { strictly = '31.1-jre' }
-jeromq-lib = { strictly = '0.5.2' }
-junit-jupiter-lib = { strictly = '5.8.2' }
-junit-platform-lib = { strictly = '1.8.2' }
-logback-lib = { strictly = '1.2.11' }
-lombok-lib = { strictly = '1.18.34' }
-mockito-lib = { strictly = '5.12.0' }
+assertj-core-lib = { strictly = '3.27.7' }
+bouncycastle-lib = { strictly = '1.84' }
+google-guava-lib = { strictly = '33.5.0-jre' }
+jeromq-lib = { strictly = '0.6.0' }
+junit-jupiter-lib = { strictly = '5.14.3' }
+junit-platform-lib = { strictly = '1.14.3' }
+logback-lib = { strictly = '1.2.13' }
+lombok-lib = { strictly = '1.18.42' }
+mockito-lib = { strictly = '5.23.0' }
 slf4j-lib = { strictly = '1.7.36' }
-square-moshi-lib = { strictly = '1.14.0' }
-square-okhttp-libs = { strictly = '4.10.0' }
+square-moshi-lib = { strictly = '1.15.2' }
+square-okhttp-libs = { strictly = '4.12.0' }
 
 [libraries]
 assertj-core = { module = 'org.assertj:assertj-core', version.ref = 'assertj-core-lib' }
-bouncycastle-pg = { module = 'org.bouncycastle:bcpg-jdk15on', version.ref = 'bouncycastle-lib' }
+bouncycastle-pg = { module = 'org.bouncycastle:bcpg-jdk18on', version.ref = 'bouncycastle-lib' }
 google-guava = { module = 'com.google.guava:guava', version.ref = 'google-guava-lib' }
 jeromq = { module = 'org.zeromq:jeromq', version.ref = 'jeromq-lib' }
 junit-jupiter = { module = 'org.junit.jupiter:junit-jupiter', version.ref = 'junit-jupiter-lib' }
