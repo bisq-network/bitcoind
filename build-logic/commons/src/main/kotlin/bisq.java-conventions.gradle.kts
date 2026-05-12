@@ -1,4 +1,3 @@
-import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.jvm.toolchain.JavaLanguageVersion
 
 plugins {
