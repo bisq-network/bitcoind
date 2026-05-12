@@ -7,7 +7,7 @@ junit-jupiter-lib = { strictly = '5.8.2' }
 junit-platform-lib = { strictly = '1.8.2' }
 logback-lib = { strictly = '1.2.11' }
 lombok-lib = { strictly = '1.18.34' }
-mockito-lib = { strictly = '5.12.0' }
+mockito-lib = { strictly = '4.11.0' }
 slf4j-lib = { strictly = '1.7.36' }
 square-moshi-lib = { strictly = '1.14.0' }
 square-okhttp-libs = { strictly = '4.10.0' }
