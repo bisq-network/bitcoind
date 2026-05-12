@@ -55,10 +55,6 @@ dependencies {
         testImplementation(it)
     }
 
-    versionCatalog.findLibrary("junit-platform-launcher").ifPresent {
-        testRuntimeOnly(it)
-    }
-
     versionCatalog.findLibrary("assertj-core").ifPresent {
         testImplementation(it)
     }
