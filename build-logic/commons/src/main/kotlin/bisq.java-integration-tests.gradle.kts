@@ -37,9 +37,6 @@ dependencies {
     versionCatalog.findLibrary("junit-jupiter").ifPresent {
         "integrationTestImplementation"(it)
     }
-    versionCatalog.findLibrary("junit-platform-launcher").ifPresent {
-        "integrationTestRuntimeOnly"(it)
-    }
 
     versionCatalog.findLibrary("assertj-core").ifPresent {
         "integrationTestImplementation"(it)
