@@ -5,10 +5,10 @@ google-guava-lib = { strictly = '33.5.0-jre' }
 jeromq-lib = { strictly = '0.6.0' }
 junit-jupiter-lib = { strictly = '5.14.3' }
 junit-platform-lib = { strictly = '1.14.3' }
-logback-lib = { strictly = '1.5.32' }
+logback-lib = { strictly = '1.2.13' }
 lombok-lib = { strictly = '1.18.42' }
 mockito-lib = { strictly = '5.23.0' }
-slf4j-lib = { strictly = '2.0.17' }
+slf4j-lib = { strictly = '1.7.36' }
 square-moshi-lib = { strictly = '1.15.2' }
 square-okhttp-libs = { strictly = '4.12.0' }
 
