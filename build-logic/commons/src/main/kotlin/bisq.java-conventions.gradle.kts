@@ -1,6 +1,3 @@
-import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.jvm.toolchain.JavaLanguageVersion
-
 plugins {
     `java-library`
 }
@@ -13,12 +10,8 @@ repositories {
 }
 
 java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
-    }
-
     tasks.compileJava {
-        options.release.set(21)
+        options.release = 11
     }
 }
 
@@ -54,10 +47,6 @@ dependencies {
 
     versionCatalog.findLibrary("junit-jupiter").ifPresent {
         testImplementation(it)
-    }
-
-    versionCatalog.findLibrary("junit-platform-launcher").ifPresent {
-        testRuntimeOnly(it)
     }
 
     versionCatalog.findLibrary("assertj-core").ifPresent {
