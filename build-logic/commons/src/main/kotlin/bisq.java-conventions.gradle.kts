@@ -1,4 +1,5 @@
 import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.api.tasks.bundling.AbstractArchiveTask
 import org.gradle.jvm.toolchain.JavaLanguageVersion
 
 plugins {
@@ -26,6 +27,11 @@ tasks {
     test {
         useJUnitPlatform()
     }
+}
+
+tasks.withType<AbstractArchiveTask>().configureEach {
+    isPreserveFileTimestamps = false
+    isReproducibleFileOrder = true
 }
 
 val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
