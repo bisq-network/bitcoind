@@ -68,10 +68,12 @@ public class BitcoindGetNetworkInfoResponse extends JsonRpcResponse<BitcoindGetN
             if (warnings == null) {
                 return Collections.emptyList();
             }
-            if (warnings instanceof String warning) {
+            if (warnings instanceof String) {
+                String warning = (String) warnings;
                 return warning.isEmpty() ? Collections.emptyList() : List.of(warning);
             }
-            if (warnings instanceof List<?> warningList) {
+            if (warnings instanceof List<?>) {
+                List<?> warningList = (List<?>) warnings;
                 return warningList.stream()
                         .filter(Objects::nonNull)
                         .map(Object::toString)
