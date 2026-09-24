@@ -30,11 +30,6 @@ tasks {
     }
 }
 
-tasks.withType<AbstractArchiveTask>().configureEach {
-    isPreserveFileTimestamps = false
-    isReproducibleFileOrder = true
-}
-
 val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 dependencies {
     versionCatalog.findLibrary("google-guava").ifPresent {
