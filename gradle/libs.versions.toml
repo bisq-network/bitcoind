@@ -2,6 +2,7 @@
 assertj-core-lib = { strictly = '3.27.7' }
 bouncycastle-lib = { strictly = '1.84' }
 google-guava-lib = { strictly = '33.6.0-jre' }
+gradlex-reproducible-builds = { strictly = '1.1' }
 jeromq-lib = { strictly = '0.6.0' }
 junit-jupiter-lib = { strictly = '5.14.3' }
 junit-platform-lib = { strictly = '1.14.3' }
@@ -16,6 +17,7 @@ square-okhttp-libs = { strictly = '4.12.0' }
 assertj-core = { module = 'org.assertj:assertj-core', version.ref = 'assertj-core-lib' }
 bouncycastle-pg = { module = 'org.bouncycastle:bcpg-jdk18on', version.ref = 'bouncycastle-lib' }
 google-guava = { module = 'com.google.guava:guava', version.ref = 'google-guava-lib' }
+gradlex-reproducible-builds = { module = "org.gradlex:reproducible-builds", version.ref = "gradlex-reproducible-builds" }
 jeromq = { module = 'org.zeromq:jeromq', version.ref = 'jeromq-lib' }
 junit-jupiter = { module = 'org.junit.jupiter:junit-jupiter', version.ref = 'junit-jupiter-lib' }
 junit-platform-launcher = { module = 'org.junit.platform:junit-platform-launcher', version.ref = 'junit-platform-lib' }

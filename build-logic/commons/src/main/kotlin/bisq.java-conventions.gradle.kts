@@ -4,6 +4,7 @@ import org.gradle.jvm.toolchain.JavaLanguageVersion
 
 plugins {
     `java-library`
+    id("org.gradlex.reproducible-builds")
 }
 
 repositories {
